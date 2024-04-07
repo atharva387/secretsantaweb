@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Santa - Reviews</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+            animation: colorChange 10s infinite alternate;
+        }
+
+        @keyframes colorChange {
+            0% {
+                background-color: #f1f1f1;
+            }
+            50% {
+                background-color: #ffcc00;
+            }
+            100% {
+                background-color: #f1f1f1;
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff6381, #ff97af, #c873c1);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        nav {
+            background: linear-gradient(135deg, #ff6381, #ff97af, #c873c1);
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+            animation: fadeIn 2s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #ff6381, #ff97af, #c873c1);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            animation: fadeIn 2s;
+        }
+
+        /* Review styles */
+        .review-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .review-card {
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            width: calc(33.33% - 40px);
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.5s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .review-card h3 {
+            color: #c873c1;
+        }
+
+        .review-card p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .profile-photo {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .login-signup {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .review-card {
+                width: calc(50% - 40px);
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .review-card {
+                width: calc(100% - 40px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Secret Santa - Reviews</h1>
+        <div class="login-signup">
+            <a href="login.html">Login</a> | <a href="signup.html">Sign Up</a>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="subs.html">Subscription Tiers</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="review-container">
+        <div class="review-card">
+            <img src="photo1.jpg" alt="Profile Photo" class="profile-photo">
+            <h3>John Doe</h3>
+            <p>"Secret Santa made my holiday season truly magical! The surprises I received were beyond my expectations. It's an amazing way to spread joy and cheer."</p>
+        </div>
+        <div class="review-card">
+            <img src="photo1.jpg" alt="Profile Photo" class="profile-photo">
+            <h3>Jane Smith</h3>
+            <p>"I've participated in Secret Santa events before, but Secret Santa app took it to a whole new level! The interface is intuitive, and the experience is seamless. I can't wait for next year!"</p>
+        </div>
+        <div class="review-card">
+            <img src="photo1.jpg" alt="Profile Photo" class="profile-photo">
+            <h3>Michael Johnson</h3>
+            <p>"I love the emphasis Secret Santa puts on surprise and delight. It's not just about exchanging gifts; it's about creating memorable moments and spreading happiness."</p>
+        </div>
+        <div class="review-card">
+            <img src="photo1.jpg" alt="Profile Photo" class="profile-photo">
+            <h3>Emily Brown</h3>
+            <p>"As someone who values privacy, I appreciate the strong emphasis Secret Santa places on keeping personal information secure. It's reassuring to know that my details are safe."</p>
+        </div>
+        <div class="review-card">
+            <img src="photo1.jpg" alt="Profile Photo" class="profile-photo">
+            <h3>Amy Lee</h3>
+            <p>"Secret Santa has made the holiday season more exciting for me. I've received thoughtful gifts and had fun guessing who my Secret Santa might be!"</p>
+        </div>
+        <div class="review-card">
+            <img src="photo1.jpg" alt="Profile Photo" class="profile-photo">
+            <h3>Robert Taylor</h3>
+            <p>"I've participated in multiple Secret Santa exchanges, but the Secret Santa app has made the process so much smoother and enjoyable. Kudos to the team behind it!"</p>
+        </div>
+    </div>
+
+
+    <footer>
+        <p>&copy; 2024 Secret Santa. All rights reserved.</p>
+    </footer>
+</body>
+</html>

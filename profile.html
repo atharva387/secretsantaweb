@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        header {
+            background-color: #ff6381;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            max-width: 800px;
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .user-info img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .user-info p {
+            margin: 0;
+            margin-bottom: 8px;
+        }
+
+        .user-info label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .interests {
+            margin-bottom: 20px;
+        }
+
+        .interests label {
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 8px;
+            padding: 8px 12px;
+            border-radius: 20px;
+            background-color: #ff97af;
+            color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .interests label:hover {
+            background-color: #ff6381;
+        }
+
+        .buttons {
+            text-align: center;
+        }
+
+        .edit-button,
+        .delete-button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .edit-button:hover,
+        .delete-button:hover {
+            background-color: #ff97af;
+        }
+
+        footer {
+            background-color: #ff6381;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .home-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+
+        .home-button img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 600px) {
+            .user-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            .user-info img {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="ss.jpg" alt="Secret Santa Logo" class="logo">
+        <h1>User Information</h1>
+    </header>
+
+    <section>
+        <div class="user-info">
+            <img src="photo1.jpg" alt="User Photo">
+            <div>
+                <p><label>First Name:</label> John</p>
+                <p><label>Last Name:</label> Doe</p>
+                <p><label>Age:</label> 30</p>
+                <p><label>Email:</label> johndoe@example.com</p>
+                <p><label>Phone Number:</label> 123-456-7890</p>
+                <p><label>Location:</label> New York</p>
+                <p><label>Gender:</label> Male</p>
+                <p><label>Identification:</label> Passport</p>
+                <p><label>Height:</label> 170 cm</p>
+                <p><label>Drinker:</label> Yes</p>
+                <p><label>Smoker:</label> No</p>
+                <p><label>Weight:</label> 70 kg</p>
+                <p><label>Languages:</label> English, Spanish</p>
+                <div class="interests">
+                    <label>Hiking</label>
+                    <label>Cooking</label>
+                    <label>Traveling</label>
+                    <label>Yoga</label>
+                    <label>Reading</label>
+                    <label>Music</label>
+                    <label>Photography</label>
+                    <label>Dancing</label>
+                    <label>Gaming</label>
+                    <label>Movies</label>
+                    <label>Coding</label>
+                    <label>Swimming</label>
+                    <label>Running</label>
+                    <label>Skiing</label>
+                    <label>Fishing</label>
+                    <label>Painting</label>
+                </div>
+                <p><label>Additional Information:</label> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="edit-button">Edit</button>
+            <button class="delete-button">Delete Profile</button>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Secret Santa. All rights reserved.</p>
+    </footer>
+
+    <div class="home-button">
+        <img src="home.png" alt="Home Button" onclick="goToHomePage()">
+    </div>
+
+    <script>
+        // JavaScript function to redirect to home.html when home button is clicked
+        function goToHomePage() {
+            window.location.href = 'home.html';
+        }
+
+        // JavaScript code to redirect to profileform.html when "Edit" button is clicked
+        document.querySelector('.edit-button').addEventListener('click', function() {
+            window.location.href = 'profileform.html';
+        });
+    </script>
+</body>
+</html>

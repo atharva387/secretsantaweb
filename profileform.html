@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        /* Add modern CSS animations */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff6381, #ff97af, #c873c1);
+            color: #000000;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            animation: fadeIn 1s ease forwards;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff6381, #ff97af, #c873c1);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            animation: slideIn 1s ease forwards;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            max-width: 600px;
+            animation: slideIn 1s ease forwards;
+        }
+
+        .profile-form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            transition: color 0.3s;
+        }
+
+        .profile-form input[type="text"],
+        .profile-form input[type="email"],
+        .profile-form input[type="number"],
+        .profile-form input[type="file"],
+        .profile-form select,
+        .profile-form input[type="range"] {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .profile-form button {
+            background-color: #ff6381;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+            animation: slideIn 1s ease forwards;
+        }
+
+        .profile-form button:hover {
+            background-color: #ff97af;
+        }
+
+        .interests {
+            display: flex;
+            flex-wrap: wrap;
+            animation: slideIn 1s ease forwards;
+        }
+
+        .interests label {
+            margin-right: 15px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #ffffff;
+            color: #000000;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Selected state */
+        .interests label.selected {
+            background-color: #ff6381;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="ss.jpg" alt="Secret Santa Logo" class="logo">
+        <h1>User Profile</h1>
+    </header>
+
+    <section>
+        <form class="profile-form" action="profile.html">
+            <!-- Personal Information -->
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName">
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName">
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber">
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location">
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="identification">Identification:</label>
+            <input type="text" id="identification" name="identification">
+
+            <label for="photo">Photo:</label>
+            <input type="file" id="photo" name="photo">
+
+            <label for="height">Height:</label>
+            <input type="range" id="height" name="height" min="100" max="300" value="170">
+            <span id="heightValue">170 cm</span>
+
+            <label for="drinker">Drinker:</label>
+            <select id="drinker" name="drinker">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="smoker">Smoker:</label>
+            <select id="smoker" name="smoker">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="weight">Weight:</label>
+            <input type="range" id="weight" name="weight" min="30" max="150" value="70">
+            <span id="weightValue">70 kg</span>
+
+            <label for="languages">Languages:</label>
+            <input type="text" id="languages" name="languages">
+
+            <!-- Interests section -->
+            <label for="interests">Interests:</label>
+            <div class="interests">
+                <label for="hiking" class="interest">Hiking</label>
+                <label for="cooking" class="interest">Cooking</label>
+                <label for="traveling" class="interest">Traveling</label>
+                <label for="yoga" class="interest">Yoga</label>
+                <label for="reading" class="interest">Reading</label>
+                <label for="music" class="interest">Music</label>
+                <label for="photography" class="interest">Photography</label>
+                <label for="dancing" class="interest">Dancing</label>
+                <label for="gaming" class="interest">Gaming</label>
+                <label for="movies" class="interest">Movies</label>
+                <label for="coding" class="interest">Coding</label>
+                <label for="swimming" class="interest">Swimming</label>
+            </div>
+
+            <!-- Additional info -->
+            <label for="additionalInfo">Additional Information:</label>
+            <textarea id="additionalInfo" name="additionalInfo" rows="4"></textarea>
+
+            <!-- Photos -->
+            <label for="photos">Upload Photos (Max 3):</label>
+            <input type="file" id="photos" name="photos" accept="image/*" multiple>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Secret Santa. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Update height value display
+        const heightInput = document.getElementById('height');
+        const heightValue = document.getElementById('heightValue');
+        heightInput.addEventListener('input', () => {
+            heightValue.textContent = `${heightInput.value} cm`;
+        });
+
+        // Update weight value display
+        const weightInput = document.getElementById('weight');
+        const weightValue = document.getElementById('weightValue');
+        weightInput.addEventListener('input', () => {
+            weightValue.textContent = `${weightInput.value} kg`;
+        });
+    </script>
+</body>
+</html>

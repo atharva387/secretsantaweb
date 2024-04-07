@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Santa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #732982, #24408E, #008026, #FFED00, #FF8C00, #E40303);
+            color: #ffffff;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        header {
+            background: linear-gradient(135deg, #732982, #24408E, #008026, #FFED00, #FF8C00, #E40303);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+        }
+
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.1);
+        }
+
+        .popup {
+            display: none;
+            position: absolute;
+            background: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            top: 60px;
+            right: 80px;
+            z-index: 1;
+            animation: slideDown 0.5s ease forwards;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        .popup.show {
+            display: block;
+            animation: slideUp 0.5s ease forwards;
+            max-height: 100px; /* Adjust height as needed */
+            opacity: 1;
+        }
+
+        .popup button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: #333333;
+            border-bottom: 1px solid #cccccc;
+            transition: background-color 0.3s;
+        }
+
+        .popup button:last-child {
+            border-bottom: none;
+        }
+
+        .popup button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .login-signup {
+            display: flex;
+            align-items: center;
+        }
+
+        nav {
+            background: linear-gradient(135deg, #732982, #24408E, #008026, #FFED00, #FF8C00, #E40303);
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px 50px;
+            background: linear-gradient(135deg, #E40303, #FF8C00, #FFED00, #008026, #24408E, #732982);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            flex-basis: 30%;
+            background-color: #24408E; /* Indigo: #24408E */
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin-bottom: 40px;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #732982, #24408E, #008026, #FFED00, #FF8C00, #E40303);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            animation: slideUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+            }
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 16px;
+            margin-top: 0;
+        }
+
+        header h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        section p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #ffffff;
+        }
+
+        .box h2 {
+            font-size: 24px;
+            color: #732982; /* Violet: #732982 */
+            margin-bottom: 10px;
+        }
+
+        .box p {
+            font-size: 18px;
+            color: #FF8C00; /* Orange: #FF8C00 */
+        }
+
+        /* Media Queries */
+        @media only screen and (max-width: 768px) {
+            .box {
+                flex-basis: 45%;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .box {
+                flex-basis: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="ss.jpg" alt="Secret Santa Logo" class="logo">
+        <div>
+            <h1>Secret Santa</h1>
+            <p>Your personalized dating experience</p>
+        </div>
+        <div class="login-signup">
+            <img src="pro.jpg" alt="Profile Picture" class="profile-pic" onclick="togglePopup()">
+            <div class="popup" id="profilePopup">
+                <button onclick="location.href='profile.html';">Profile</button>
+                <button onclick="location.href='dating.html';">Logout</button>
+            </div>
+            <a href="home.html"><img src="home.png" alt="Home" class="profile-pic"></a>
+        </div>
+    </header>
+    <section>
+        <h2>About Us</h2>
+        <p>Welcome to Secret Santa, where we believe that finding love should be as exciting as receiving a surprise gift. Our personalized dating website is designed to bring joy, excitement, and romance into your life. With a touch of mystery and a sprinkle of magic, we match you with potential partners based on your unique preferences, interests, and personality traits. Our mission is to create meaningful connections that feel like discovering a special present under the tree. Join Secret Santa today and unwrap the gift of love.</p>
+    </section>
+    <section>
+        <h2>Find Your Match</h2>
+        <div class="container">
+            <div class="box" onclick="location.href='hookupform.html';">
+                <h2>HOOKUP</h2>
+                <p>Find casual encounters</p>
+            </div>
+            <div class="box" onclick="location.href='blinddateform.html';">
+                <h2>BLIND DATE</h2>
+                <p>Let fate decide your date</p>
+            </div>
+           
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Secret Santa. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function togglePopup() {
+            var popup = document.getElementById("profilePopup");
+            popup.classList.toggle("show");
+        }
+    </script>
+</body>
+</html>

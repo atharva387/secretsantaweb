@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Santa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff6381, #ff97af, #c873c1);
+            color: #ffffff;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff6381, #ff97af, #c873c1);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+        }
+
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.1);
+        }
+
+        .popup {
+            display: none;
+            position: absolute;
+            background: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            top: 60px;
+            right: 20px;
+            z-index: 1;
+            animation: slideDown 0.5s ease forwards;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        .popup.show {
+            display: block;
+            animation: slideUp 0.5s ease forwards;
+            max-height: 100px; /* Adjust height as needed */
+            opacity: 1;
+        }
+
+        .popup button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 16px;
+            color: #333333;
+            border-bottom: 1px solid #cccccc;
+            transition: background-color 0.3s;
+        }
+
+        .popup button:last-child {
+            border-bottom: none;
+        }
+
+        .popup button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .login-signup {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+        }
+
+        nav {
+            background: linear-gradient(135deg, #ff6381, #ff97af, #c873c1);
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px 50px;
+            background-color: rgba(255, 255, 255, 0.8); /* Adjust opacity to match the theme */
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            flex-basis: 30%;
+            background-color: #c873c1;
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+            margin-bottom: 40px;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #ff6381, #ff97af, #c873c1);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            animation: slideUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+            }
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 16px;
+            margin-top: 0;
+        }
+
+        header h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #c873c1;
+        }
+
+        section p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #666666;
+        }
+
+        .box h2 {
+            font-size: 24px;
+            color: #ff6381;
+            margin-bottom: 10px;
+        }
+
+        .box p {
+            font-size: 18px;
+            color: #ff97af;
+        }
+
+        /* Media Queries */
+        @media only screen and (max-width: 768px) {
+            .box {
+                flex-basis: 45%;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .box {
+                flex-basis: 90%;
+            }
+            header h1 {
+                font-size: 24px;
+                margin-bottom: 5px;
+            }
+            header p {
+                font-size: 14px;
+            }
+            header h2 {
+                font-size: 22px;
+                margin-bottom: 15px;
+            }
+            section {
+                margin: 10px 20px;
+                padding: 10px;
+            }
+            section h2 {
+                font-size: 22px;
+                margin-bottom: 15px;
+            }
+            section p {
+                font-size: 14px;
+            }
+            .container {
+                margin: 0;
+            }
+            .box {
+                margin-bottom: 20px;
+            }
+            .review-card {
+                width: 100%;
+                margin: 10px 0;
+            }
+            .review-card h3 {
+                font-size: 18px;
+            }
+            .review-card p {
+                font-size: 14px;
+            }
+            .profile-photo {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        /* Review styles */
+        .review-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .review-card {
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+            width: calc(33.33% - 40px);
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.5s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .review-card h3 {
+            color: #c873c1;
+        }
+
+        .review-card p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .profile-photo {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="ss.jpg" alt="Secret Santa Logo" class="logo">
+        <div>
+            <h1>Secret Santa</h1>
+            <p>Your personalized dating experience</p>
+        </div>
+        <div class="login-signup">
+            <img src="pro.jpg" alt="Profile Picture" class="profile-pic" onclick="togglePopup()">
+            <div class="popup" id="profilePopup">
+                <button onclick="location.href='profile.html';">Profile</button>
+                <button onclick="location.href='dating.html';">Logout</button>
+            </div>
+        </div>
+    </header>
+    <!-- <nav>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="match.html">Matches</a></li>
+            <li><a href="message.html">Messages</a></li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </nav> -->
+    <section>
+        <h2>About Us</h2>
+        <p>Welcome to Secret Santa, where we believe that finding love should be as exciting as receiving a surprise gift. Our personalized dating website is designed to bring joy, excitement, and romance into your life. With a touch of mystery and a sprinkle of magic, we match you with potential partners based on your unique preferences, interests, and personality traits. Our mission is to create meaningful connections that feel like discovering a special present under the tree. Join Secret Santa today and unwrap the gift of love.</p>
+    </section>
+    <section>
+        <h2>Find Your Match</h2>
+        <div class="container">
+            <div class="box" onclick="location.href='hookupform.html';">
+                <h2>HOOKUP</h2>
+                <p>Find casual encounters</p>
+            </div>
+            <div class="box" onclick="location.href='blinddateform.html';">
+                <h2>BLIND DATE</h2>
+                <p>Let fate decide your date</p>
+            </div>
+            <div class="box" onclick="location.href='lgbtqhome.html';">
+                <h2>LGBTQ</h2>
+                <p>For LGBTQ community</p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2>Reviews</h2>
+        <div class="review-container">
+            <!-- Review cards go here -->
+            <div class="review-card">
+                <img src="photo1.jpg" alt="Reviewer Profile Photo" class="profile-photo">
+                <h3>John Doe</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula, nisl eu pharetra fringilla, purus nisi suscipit quam, eget finibus nisi lorem non leo.</p>
+            </div>
+            <div class="review-card">
+                <img src="photo1.jpg" alt="Reviewer Profile Photo" class="profile-photo">
+                <h3>Jane Smith</h3>
+                <p>Nulla euismod, libero nec tincidunt rutrum, mi justo consequat lacus, et volutpat sapien odio eget magna. Morbi ac tortor et neque fermentum vestibulum.</p>
+            </div>
+            <div class="review-card">
+                <img src="photo1.jpg" alt="Reviewer Profile Photo" class="profile-photo">
+                <h3>Michael Johnson</h3>
+                <p>Curabitur accumsan diam ut nisi fringilla, eget finibus urna lobortis. Mauris feugiat nibh nec enim bibendum, nec blandit ligula convallis.</p>
+            </div>
+            <div class="review-card">
+                <img src="photo1.jpg" alt="Profile Photo" class="profile-photo">
+                <h3>Emily Brown</h3>
+                <p>"As someone who values privacy, I appreciate the strong emphasis Secret Santa places on keeping personal information secure. It's reassuring to know that my details are safe."</p>
+            </div>
+            <div class="review-card">
+                <img src="photo1.jpg" alt="Profile Photo" class="profile-photo">
+                <h3>Amy Lee</h3>
+                <p>"Secret Santa has made the holiday season more exciting for me. I've received thoughtful gifts and had fun guessing who my Secret Santa might be!"</p>
+            </div>
+            <div class="review-card">
+                <img src="photo1.jpg" alt="Profile Photo" class="profile-photo">
+                <h3>Robert Taylor</h3>
+                <p>"I've participated in multiple Secret Santa exchanges, but the Secret Santa app has made the process so much smoother and enjoyable. Kudos to the team behind it!"</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Secret Santa. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function togglePopup() {
+            var popup = document.getElementById("profilePopup");
+            popup.classList.toggle("show");
+        }
+    </script>
+</body>
+</html>

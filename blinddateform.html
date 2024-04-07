@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Santa - Questionnaire</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff6381, #ff97af, #c873c1);
+            color: #ffffff;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff6381, #ff97af, #c873c1);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+        }
+
+        .home-button {
+            width: 40px;
+            height: auto;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px 5%;
+            background-color: rgba(255, 255, 255, 0.8); /* Adjust opacity to match the theme */
+            border-radius: 10px;
+            animation: fadeIn 1s ease forwards;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .question {
+            margin-bottom: 20px;
+            animation: slideIn 1s ease forwards;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .question h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #c873c1;
+        }
+
+        .answers {
+            margin-top: 10px;
+        }
+
+        .answer {
+            display: block;
+            margin-bottom: 10px;
+            animation: slideIn 1s ease forwards;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .answer input[type="checkbox"],
+        .answer input[type="radio"] {
+            margin-right: 5px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .answer label {
+            display: inline-block;
+            margin-right: 10px;
+            color: #333333;
+            transition: color 0.3s ease;
+        }
+
+        .answer:hover label {
+            color: #ff6381;
+        }
+
+        .answer:hover input[type="checkbox"],
+        .answer:hover input[type="radio"] {
+            transform: scale(1.1);
+        }
+
+        .submit-button {
+            background-color: #ff6381;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+            animation: slideIn 1s ease forwards;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .submit-button:hover {
+            background-color: #ff97af;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #ff6381, #ff97af, #c873c1);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            animation: slideUp 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media only screen and (min-width: 600px) {
+            section {
+                margin: 20px 15%;
+            }
+        }
+
+        @media only screen and (min-width: 900px) {
+            section {
+                margin: 20px 25%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="ss.jpg" alt="Secret Santa Logo" class="logo">
+        <h1>Secret Santa - Questionnaire</h1>
+        <a href="home.html"><img src="home.png" alt="Home" class="home-button"></a>
+    </header>
+
+    <section>
+        <div class="question">
+            <h3>What kind of a person are you looking for?</h3>
+            <div class="answers">
+                <div class="answer"><input type="checkbox" id="enthusiastic"><label for="enthusiastic">Enthusiastic</label></div>
+                <div class="answer"><input type="checkbox" id="easygoing"><label for="easygoing">Easy going/Extrovert</label></div>
+                <div class="answer"><input type="checkbox" id="silent"><label for="silent">Silent/Introvert</label></div>
+                <div class="answer"><input type="checkbox" id="fitnessfreak"><label for="fitnessfreak">Fitness Freak</label></div>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>What would be your ideal place for a date?</h3>
+            <div class="answers">
+                <div class="answer"><input type="checkbox" id="cafe"><label for="cafe">Cafe/Restaurant</label></div>
+                <div class="answer"><input type="checkbox" id="movie"><label for="movie">Movie date</label></div>
+                <div class="answer"><input type="checkbox" id="longrides"><label for="longrides">Long rides</label></div>
+                <div class="answer"><input type="checkbox" id="clubbing"><label for="clubbing">Clubbing</label></div>
+                <div class="answer"><input type="checkbox" id="arcade"><label for="arcade">Arcade</label></div>
+                <div class="answer"><input type="checkbox" id="trek"><label for="trek">Trek</label></div>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>What matters to you the most?</h3>
+            <div class="answers">
+                <div class="answer"><input type="radio" id="appearance" name="matter"><label for="appearance">Appearance</label></div>
+                <div class="answer"><input type="radio" id="personality" name="matter"><label for="personality">Personality</label></div>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>What are the most important characteristics to you?</h3>
+            <div class="answers">
+                <div class="answer"><input type="checkbox" id="goodlooks"><label for="goodlooks">Good looks and style</label></div>
+                <div class="answer"><input type="checkbox" id="loyal"><label for="loyal">Loyal, Kind, Trustworthy</label></div>
+                <div class="answer"><input type="checkbox" id="senseofhumor"><label for="senseofhumor">Sense of humor, sarcasm</label></div>
+                <div class="answer"><input type="checkbox" id="dynamic"><label for="dynamic">Dynamic, Successful</label></div>
+                <div class="answer"><input type="checkbox" id="passionate"><label for="passionate">Passionate, adventures</label></div>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>Choose 3 traits you least like in someone.</h3>
+            <div class="answers">
+                <div class="answer"><input type="checkbox" id="messiness"><label for="messiness">Messiness</label></div>
+                <div class="answer"><input type="checkbox" id="unreliability"><label for="unreliability">Unreliability</label></div>
+                <div class="answer"><input type="checkbox" id="meanness"><label for="meanness">Meanness/Bully</label></div>
+                <div class="answer"><input type="checkbox" id="selfishness"><label for="selfishness">Selfishness</label></div>
+                <div class="answer"><input type="checkbox" id="nonambitious"><label for="nonambitious">Non-ambitious</label></div>
+                <div class="answer"><input type="checkbox" id="poordressing"><label for="poordressing">Poor dressing sense</label></div>
+                <div class="answer"><input type="checkbox" id="negativeattitude"><label for="negativeattitude">Negative attitude/ sulkiness</label></div>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>Are you an?</h3>
+            <div class="answers">
+                <div class="answer"><input type="radio" id="introvert" name="personality"><label for="introvert">Introvert</label></div>
+                <div class="answer"><input type="radio" id="extrovert" name="personality"><label for="extrovert">Extrovert</label></div>
+                <div class="answer"><input type="radio" id="ambivert" name="personality"><label for="ambivert">Ambivert</label></div>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>Is the element of sex important to you?</h3>
+            <div class="answers">
+                <div class="answer"><input type="radio" id="yessex" name="sex"><label for="yessex">Yes</label></div>
+                <div class="answer"><input type="radio" id="nosex" name="sex"><label for="nosex">No</label></div>
+            </div>
+        </div>
+
+        <div class="question">
+            <h3>Do you mind if we share your photo with your date?</h3>
+            <div class="answers">
+                <div class="answer"><input type="radio" id="yesphoto" name="sharephoto"><label for="yesphoto">Yes</label></div>
+                <div class="answer"><input type="radio" id="nophoto" name="sharephoto"><label for="nophoto">No</label></div>
+            </div>
+        </div>
+
+        <button class="submit-button">Submit</button>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Secret Santa. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Fade in animation for section and questions
+        document.addEventListener('DOMContentLoaded', function() {
+            var section = document.querySelector('section');
+            var questions = document.querySelectorAll('.question');
+            var submitButton = document.querySelector('.submit-button');
+
+            section.style.opacity = '1';
+            section.style.animation = 'none';
+
+            questions.forEach(function(question) {
+                question.style.opacity = '1';
+                question.style.animation = 'none';
+            });
+
+            submitButton.style.opacity = '1';
+            submitButton.style.animation = 'none';
+        });
+    </script>
+</body>
+</html>

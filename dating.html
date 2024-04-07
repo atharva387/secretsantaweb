@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flame Dating App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+            animation: colorChange 10s infinite alternate;
+        }
+
+        @keyframes colorChange {
+            0% {
+                background-color: #f1f1f1;
+            }
+            50% {
+                background-color: #ffcc00;
+            }
+            100% {
+                background-color: #f1f1f1;
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff6381, #ff97af, #c873c1);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .login-signup {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav {
+            background: linear-gradient(135deg, #ff6381, #ff97af, #c873c1);
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+            animation: fadeIn 2s;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #ff6381, #ff97af, #c873c1);
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            animation: fadeIn 2s;
+        }
+
+        @media screen and (max-width: 768px) {
+            .login-signup {
+                position: static;
+                margin-top: 20px;
+            }
+
+            nav ul li {
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+
+        /* Additional styles for the splash screen */
+        #splash-screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff6381, #ff97af, #c873c1);
+            color: #ffffff;
+        }
+
+        #splash-screen img {
+            max-width: 50%;
+            max-height: 50%;
+        }
+
+        /* Styles for the About Us section */
+        .about-us {
+            text-align: center;
+            animation: fadeIn 2s;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+
+        .about-us h2 {
+            margin-top: 0;
+            color: #c873c1;
+        }
+
+        .about-us p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div id="splash-screen">
+        <img src="ss.jpg" alt="Flame Logo">
+    </div>
+
+    <script>
+        // JavaScript to simulate splash screen transition
+        window.onload = function() {
+            // Simulate a delay for demonstration purposes
+            setTimeout(function() {
+                document.getElementById('splash-screen').style.display = 'none';
+            }, 3000); // 3000 milliseconds = 3 seconds
+        };
+    </script>
+
+    <header>
+        <h1>Welcome to Flame</h1>
+        <div class="login-signup">
+            <a href="login.html">Login</a> | <a href="form.html">Sign Up</a>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="subs.html">Reviews</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    
+    <section class="about-us">
+        <h2>About Us</h2>
+        Welcome to Secret Santa, where we believe that finding love should be as exciting as receiving a surprise gift. Our personalized dating website is designed to bring joy, excitement, and romance into your life. With a touch of mystery and a sprinkle of magic, we match you with potential partners based on your unique preferences, interests, and personality traits. Our mission is to create meaningful connections that feel like discovering a special present under the tree. Join Secret Santa today and unwrap the gift of love.
+    </section>
+    <footer>
+        <p>&copy; 2024 Flame Dating App. All rights reserved.</p>
+    </footer>
+</body>
+</html>
